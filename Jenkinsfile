@@ -4,11 +4,13 @@ pipeline {
         stage('Git Checkout') { 
             steps {
                  sh 'git clone https://github.com/LohanYugue/Coodesh-Challenge.git'
+                 stash includes: '*', name: 'git'
             }
         }
         stage('Build') { 
             steps {
-                 sh 'npm run build'
+                unstash 'git'
+                sh 'npm run build'
             }
         }
         stage('Test') { 
