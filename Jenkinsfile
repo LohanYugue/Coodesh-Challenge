@@ -3,13 +3,14 @@ pipeline {
     stages {
         stage('Git Checkout') { 
             steps {
-                 sh 'git clone https://github.com/LohanYugue/Coodesh-Challenge.git'
+                 sh 'git clone https://github.com/ahfarmer/calculator.git'
                  stash includes: '*', name: 'git'
             }
         }
         stage('Build') { 
             steps {
                 unstash 'git'
+                sh 'cd calculator/'
                 sh 'npm run build'
             }
         }
