@@ -23,7 +23,10 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                sh 'aws s3 sync . s3://teste-lohan/'
+              dir("calculator") {
+                sh 'pwd'
+                sh 'aws s3 sync build s3://teste-lohan/'
+              }  
             }
         }
     }
