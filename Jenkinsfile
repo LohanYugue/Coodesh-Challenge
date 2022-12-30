@@ -7,15 +7,15 @@ pipeline {
                  stash includes: '*', name: 'git'
             }
         }
-        stage('Build') { 
-            steps {
-              dir("calculator") {
-                unstash 'git'
-                sh 'pwd'
-                sh 'npm install && npm run build'
-              }
-            }
-        }
+        // stage('Build') { 
+        //     steps {
+        //       dir("calculator") {
+        //         unstash 'git'
+        //         sh 'pwd'
+        //         sh 'npm install && npm run build'
+        //       }
+        //     }
+        // }
         stage('Test') { 
             steps {
                 echo 'Test'
@@ -23,10 +23,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-              dir("calculator") {
-                sh 'pwd'
-                sh 'aws s3 sync build s3://teste-lohan/'
-              }  
+              sh 'aws s3 sync build s3://teste-lohan/'
             }
         }
     }
