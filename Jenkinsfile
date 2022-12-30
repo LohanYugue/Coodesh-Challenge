@@ -11,7 +11,7 @@ pipeline {
             steps {
                 unstash 'git'
                 sh 'cd calculator/'
-                sh 'npm run build'
+                sh 'npm install && npm run build'
             }
         }
         stage('Test') { 
