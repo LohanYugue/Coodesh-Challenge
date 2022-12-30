@@ -12,7 +12,7 @@ pipeline {
               dir("calculator") {
                 unstash 'git'
                 sh 'pwd'
-                sh 'cd calculator/ & npm install && npm run build'
+                sh 'npm install && npm run build'
               }
             }
         }
