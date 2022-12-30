@@ -9,9 +9,11 @@ pipeline {
         }
         stage('Build') { 
             steps {
+              dir("calculator") {
                 unstash 'git'
-                sh 'cd calculator/'
-                sh 'npm install && npm run build'
+                sh 'pwd'
+                sh 'cd calculator/ & npm install && npm run build'
+              }
             }
         }
         stage('Test') { 
