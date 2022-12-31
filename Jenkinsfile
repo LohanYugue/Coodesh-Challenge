@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     environment {
-        BUCKET_NAME = 'calculator-coodesh.com'
+        BUCKET_NAME = 'calculator-coodesh.com.br'
     }
 
     stages {
