@@ -34,8 +34,8 @@ pipeline {
         // }
         stage('Deploy') { 
             steps {
-              sh 'aws s3 sync build s3://${BUCKET_NAME}/'
-              echo 'Bucket Endpoint: http://${BUCKET_NAME}.s3-website-us-east-1.amazonaws.com '
+              sh "aws s3 sync build s3://${BUCKET_NAME}/"
+              echo "Bucket Endpoint: http://${BUCKET_NAME}.s3-website-us-east-1.amazonaws.com "
             }
         }
     }
