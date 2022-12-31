@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Create bucket') { 
             steps {
-              sh 'terraform init && terraform plan && terraform apply'
+              sh 'terraform init && terraform plan && terraform apply -auto-approve'
             }
         }
         stage('Build') { 
