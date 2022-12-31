@@ -35,8 +35,3 @@ pipeline {
         }
     }
 }
-
-${bucket_name}
-"${bucket_name}"
-$bucket_name
-"$bucket_name"
