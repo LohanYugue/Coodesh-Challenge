@@ -7,6 +7,11 @@ pipeline {
                  stash includes: '*', name: 'git'
             }
         }
+        stage('Create bucket') { 
+            steps {
+              sh 'terraform init & terraform plan & terraform apply'
+            }
+        }
         // stage('Build') { 
         //     steps {
         //       dir("calculator") {
@@ -16,15 +21,22 @@ pipeline {
         //       }
         //     }
         // }
-        stage('Test') { 
-            steps {
-                echo 'Test'
-            }
-        }
+        // stage('Deploy') { 
+        //     steps {
+        //       dir("calculator") {
+        //         sh 'aws s3 sync build s3://calculator-coodesh.com/'
+        //         }
+        //     }
+        // }
         stage('Deploy') { 
             steps {
-              sh 'aws s3 sync build s3://teste-lohan/'
+              sh 'aws s3 sync build s3://calculator-coodesh.com/'
             }
         }
     }
 }
+
+${bucket_name}
+"${bucket_name}"
+$bucket_name
+"$bucket_name"
