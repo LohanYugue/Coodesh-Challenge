@@ -5,5 +5,5 @@ variable "aws_region" {
 
 #Variaveis S3
 variable "bucket_name" {
-  default = "calculator-coodesh.com"
+  default = "calculator-coodesh.com.br"
 }
